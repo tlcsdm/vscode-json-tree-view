@@ -48,8 +48,6 @@ Enter a JSONata expression in the input field at the bottom to query and transfo
 
 For a comprehensive guide on JSONata expressions, see the [JSONata Expression Guide](docs/jsonata-guide.md).
 
-> Note: VS Code Marketplace only has **Details** (README) and **Changelog** tabs. `docs/jsonata-guide.md` is included in the published extension package, but it cannot appear as a separate Marketplace tab.
-
 ### Copy Value
 
 Right-click any node in the tree to copy its key or value (unescaped).
