@@ -24,6 +24,9 @@ Search for `tlcsdm-json-tree-view` in the VS Code Extensions panel.
 1. Download the `.vsix` file from the [Releases](https://github.com/tlcsdm/vscode-json-tree-view/releases) page
 2. In VS Code, go to Extensions → ··· → Install from VSIX
 
+### From Jenkins  
+Download from [Jenkins](https://jenkins.tlcsdm.com/job/vscode-plugin/job/vscode-json-tree-view/)
+
 ## Usage
 
 ### Open JSON Tree View
