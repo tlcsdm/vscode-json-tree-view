@@ -65,9 +65,22 @@ function isJsonDocument(document: vscode.TextDocument): boolean {
 }
 
 function unescapeJsonString(value: string): string {
+    // If the value looks like a JSON-encoded string (starts and ends with quotes), parse it directly
+    if (value.startsWith('"') && value.endsWith('"')) {
+        try {
+            return JSON.parse(value);
+        } catch {
+            return value;
+        }
+    }
+    // Otherwise try to parse common JSON escape sequences
     try {
-        const parsed = JSON.parse(`"${value}"`);
-        return parsed;
+        return value
+            .replace(/\\n/g, '\n')
+            .replace(/\\t/g, '\t')
+            .replace(/\\r/g, '\r')
+            .replace(/\\\\/g, '\\')
+            .replace(/\\"/g, '"');
     } catch {
         return value;
     }
