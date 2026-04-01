@@ -8,6 +8,7 @@ A VS Code extension for JSON file visualization. Provides a visual tree view for
 - 🔍 **Search** with next/previous match navigation
 - 🔍 **Query and Transform** with JSONata expressions
 - 🎯 **Copy Value** - Unescape JSON strings within JSON payload (Right Click + Copy Value)
+- 📍 **Locate in File** - Right-click a tree node and jump to its location in the source editor
 - 🔁 **JSON5 support** - View JSON5 files
 - 🔁 **Auto-refresh** on file save
 - 🌐 **Internationalization** - English, Chinese, Japanese
@@ -44,9 +45,15 @@ Enter a JSONata expression in the input field at the bottom to query and transfo
 
 For a comprehensive guide on JSONata expressions, see the [JSONata Expression Guide](docs/jsonata-guide.md).
 
+> Note: VS Code Marketplace only has **Details** (README) and **Changelog** tabs. `docs/jsonata-guide.md` is included in the published extension package, but it cannot appear as a separate Marketplace tab.
+
 ### Copy Value
 
 Right-click any node in the tree to copy its key or value (unescaped).
+
+### Locate in File
+
+Right-click any node in the tree and choose **Locate in File** to jump to that node in the JSON source editor.
 
 ## Keyboard Shortcuts
 

@@ -4,10 +4,11 @@ All notable changes to the "tlcsdm-json-tree-view" extension will be documented 
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/), and this project adheres to [Semantic Versioning](https://semver.org/).
 
-## [1.1.0] - 2026-04-01
+## [1.0.1] - 2026-04-01
 
 ### Added
 
+- Node location feature: right-click a node in the tree view and select "Locate in File" to jump to that node's position in the JSON source file
 - Keyboard shortcut `Ctrl+Shift+J` (`Cmd+Shift+J` on macOS) to quickly open JSON Tree View
 - Type-specific node icons with distinct colors for string (S), number (N), boolean (B), and null (∅) values
 - JSONata Expression Guide documentation (`docs/jsonata-guide.md`)
