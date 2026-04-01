@@ -25,6 +25,8 @@ export class JsonTreePanel {
             }
         );
 
+        this.panel.iconPath = vscode.Uri.joinPath(context.extensionUri, 'images', 'icon.png');
+
         this.panel.onDidDispose(() => this.dispose(), null, this.disposables);
 
         this.panel.webview.onDidReceiveMessage(

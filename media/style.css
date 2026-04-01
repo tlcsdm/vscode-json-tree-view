@@ -143,8 +143,8 @@ body {
 }
 
 .node-icon.string {
-    background: var(--string-color);
-    color: #fff;
+    color: var(--string-color);
+    border: 1.5px solid var(--string-color);
     font-size: 8px;
 }
 
@@ -153,8 +153,8 @@ body {
 }
 
 .node-icon.number {
-    background: var(--number-color);
-    color: #1e1e1e;
+    color: var(--number-color);
+    border: 1.5px solid var(--number-color);
     font-size: 8px;
 }
 
@@ -163,8 +163,8 @@ body {
 }
 
 .node-icon.boolean {
-    background: var(--boolean-color);
-    color: #fff;
+    color: var(--boolean-color);
+    border: 1.5px solid var(--boolean-color);
     font-size: 8px;
 }
 
@@ -173,8 +173,8 @@ body {
 }
 
 .node-icon.null {
-    background: var(--null-color);
-    color: #1e1e1e;
+    color: var(--null-color);
+    border: 1.5px solid var(--null-color);
     font-size: 8px;
 }
 
@@ -298,6 +298,8 @@ body {
     overflow: auto;
     white-space: pre-wrap;
     word-break: break-all;
+    user-select: text;
+    cursor: text;
 }
 
 .context-menu {
