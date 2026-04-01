@@ -1,0 +1,294 @@
+:root {
+    --bg-color: var(--vscode-editor-background);
+    --fg-color: var(--vscode-editor-foreground);
+    --border-color: var(--vscode-widget-border, #444);
+    --input-bg: var(--vscode-input-background);
+    --input-fg: var(--vscode-input-foreground);
+    --input-border: var(--vscode-input-border, #444);
+    --btn-bg: var(--vscode-button-secondaryBackground);
+    --btn-fg: var(--vscode-button-secondaryForeground);
+    --btn-hover: var(--vscode-button-secondaryHoverBackground);
+    --highlight-bg: var(--vscode-editor-findMatchHighlightBackground, rgba(255, 255, 0, 0.3));
+    --active-highlight-bg: var(--vscode-editor-findMatchBackground, rgba(255, 200, 0, 0.6));
+    --string-color: var(--vscode-debugTokenExpression-string, #ce9178);
+    --number-color: var(--vscode-debugTokenExpression-number, #b5cea8);
+    --boolean-color: var(--vscode-debugTokenExpression-boolean, #569cd6);
+    --null-color: var(--vscode-debugTokenExpression-name, #9cdcfe);
+    --key-color: var(--vscode-symbolIcon-propertyForeground, #9cdcfe);
+    --bracket-color: var(--vscode-editorBracketHighlight-foreground1, #ffd700);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--vscode-editor-font-family, 'Consolas', 'Courier New', monospace);
+    font-size: var(--vscode-editor-font-size, 13px);
+    color: var(--fg-color);
+    background: var(--bg-color);
+    padding: 8px;
+    overflow-x: hidden;
+}
+
+.toolbar {
+    display: flex;
+    gap: 8px;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 8px;
+}
+
+.toolbar-btn {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border: 1px solid var(--border-color);
+    padding: 4px 12px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 2px;
+}
+
+.toolbar-btn:hover {
+    background: var(--btn-hover);
+}
+
+#tree-container {
+    overflow: auto;
+    flex: 1;
+    padding: 4px 0;
+    min-height: 200px;
+    max-height: calc(100vh - 220px);
+}
+
+.tree-node {
+    padding-left: 20px;
+    line-height: 22px;
+    user-select: none;
+}
+
+.tree-node-header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 1px 4px;
+    border-radius: 3px;
+}
+
+.tree-node-header:hover {
+    background: var(--vscode-list-hoverBackground, rgba(255, 255, 255, 0.05));
+}
+
+.tree-node-header.highlight {
+    background: var(--highlight-bg);
+}
+
+.tree-node-header.active-highlight {
+    background: var(--active-highlight-bg);
+}
+
+.toggle {
+    display: inline-block;
+    width: 16px;
+    text-align: center;
+    cursor: pointer;
+    color: var(--fg-color);
+    flex-shrink: 0;
+}
+
+.toggle.expanded::before {
+    content: '▼';
+    font-size: 10px;
+}
+
+.toggle.collapsed::before {
+    content: '▶';
+    font-size: 10px;
+}
+
+.toggle.leaf::before {
+    content: '';
+}
+
+.node-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    font-size: 10px;
+    font-weight: bold;
+    margin-right: 4px;
+    flex-shrink: 0;
+}
+
+.node-icon.object {
+    color: var(--bracket-color);
+}
+
+.node-icon.object::before {
+    content: '{ }';
+}
+
+.node-icon.array {
+    color: var(--bracket-color);
+}
+
+.node-icon.array::before {
+    content: '[ ]';
+}
+
+.node-icon.primitive {
+    background: #6a4c93;
+    color: #fff;
+    font-size: 8px;
+}
+
+.node-icon.primitive::before {
+    content: 'P';
+}
+
+.node-key {
+    color: var(--key-color);
+    margin-right: 2px;
+}
+
+.node-separator {
+    color: var(--fg-color);
+    margin-right: 4px;
+}
+
+.node-value.string {
+    color: var(--string-color);
+}
+
+.node-value.number {
+    color: var(--number-color);
+}
+
+.node-value.boolean {
+    color: var(--boolean-color);
+}
+
+.node-value.null {
+    color: var(--null-color);
+    font-style: italic;
+}
+
+.node-info {
+    color: var(--vscode-descriptionForeground, #888);
+    margin-left: 4px;
+    font-size: 0.9em;
+}
+
+.tree-node-children {
+    display: block;
+}
+
+.tree-node-children.hidden {
+    display: none;
+}
+
+.search-bar {
+    display: flex;
+    gap: 4px;
+    padding: 8px 0;
+    border-top: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.search-bar input {
+    flex: 1;
+    background: var(--input-bg);
+    color: var(--input-fg);
+    border: 1px solid var(--input-border);
+    padding: 4px 8px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+}
+
+.search-bar input:focus {
+    border-color: var(--vscode-focusBorder, #007acc);
+}
+
+.search-btn {
+    background: var(--btn-bg);
+    color: var(--btn-fg);
+    border: 1px solid var(--border-color);
+    padding: 4px 16px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.search-btn:hover {
+    background: var(--btn-hover);
+}
+
+.search-count {
+    color: var(--vscode-descriptionForeground, #888);
+    font-size: 12px;
+    min-width: 60px;
+    text-align: right;
+}
+
+.jsonata-bar {
+    padding: 8px 0;
+    border-top: 1px solid var(--border-color);
+}
+
+.jsonata-bar input {
+    width: 100%;
+    background: var(--input-bg);
+    color: var(--input-fg);
+    border: 1px solid var(--input-border);
+    padding: 4px 8px;
+    font-size: 13px;
+    font-family: inherit;
+    outline: none;
+    margin-bottom: 4px;
+}
+
+.jsonata-bar input:focus {
+    border-color: var(--vscode-focusBorder, #007acc);
+}
+
+.jsonata-result {
+    background: var(--input-bg);
+    color: var(--vscode-descriptionForeground, #888);
+    border: 1px solid var(--input-border);
+    padding: 4px 8px;
+    font-size: 12px;
+    font-family: inherit;
+    max-height: 150px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+}
+
+.context-menu {
+    position: fixed;
+    background: var(--vscode-menu-background, #252526);
+    border: 1px solid var(--vscode-menu-border, #454545);
+    border-radius: 4px;
+    padding: 4px 0;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    min-width: 150px;
+}
+
+.context-menu-item {
+    padding: 4px 16px;
+    cursor: pointer;
+    font-size: 13px;
+    color: var(--vscode-menu-foreground, #ccc);
+}
+
+.context-menu-item:hover {
+    background: var(--vscode-menu-selectionBackground, #094771);
+    color: var(--vscode-menu-selectionForeground, #fff);
+}

@@ -1,0 +1,10 @@
+{
+    "displayName": "Tlcsdm JSON ツリービュー",
+    "description": "VS Code 用 JSON ビューア。ツリーナビゲーション、次/前の一致検索、JSONata クエリサポート、JSON5 ファイルの表示を提供",
+    "command.open.title": "JSON ツリービューを開く",
+    "command.open.category": "JSON ツリービュー",
+    "command.copyValue.title": "値をコピー（エスケープ解除）",
+    "command.copyValue.category": "JSON ツリービュー",
+    "config.title": "JSON ツリービュー",
+    "config.autoRefresh.description": "JSON ファイルが保存されたときにツリービューを自動的に更新します。"
+}
