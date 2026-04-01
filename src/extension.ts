@@ -73,17 +73,15 @@ function unescapeJsonString(value: string): string {
             return value;
         }
     }
-    // Otherwise try to parse common JSON escape sequences
-    try {
-        return value
-            .replace(/\\n/g, '\n')
-            .replace(/\\t/g, '\t')
-            .replace(/\\r/g, '\r')
-            .replace(/\\\\/g, '\\')
-            .replace(/\\"/g, '"');
-    } catch {
-        return value;
-    }
+    // Process all escape sequences in a single pass to avoid double-unescaping
+    const escapeMap: Record<string, string> = {
+        '\\n': '\n',
+        '\\t': '\t',
+        '\\r': '\r',
+        '\\\\': '\\',
+        '\\"': '"',
+    };
+    return value.replace(/\\n|\\t|\\r|\\\\|\\"/g, (match) => escapeMap[match] ?? match);
 }
 
 export function deactivate() {
