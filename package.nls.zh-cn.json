@@ -1,0 +1,10 @@
+{
+    "displayName": "Tlcsdm JSON 树视图",
+    "description": "VS Code 的 JSON 查看器，提供可视化树导航、搜索上一个/下一个匹配项、JSONata 查询支持以及 JSON5 文件查看",
+    "command.open.title": "打开 JSON 树视图",
+    "command.open.category": "JSON 树视图",
+    "command.copyValue.title": "复制值（取消转义）",
+    "command.copyValue.category": "JSON 树视图",
+    "config.title": "JSON 树视图",
+    "config.autoRefresh.description": "保存 JSON 文件时自动刷新树视图。"
+}

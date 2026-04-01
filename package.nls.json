@@ -1,0 +1,10 @@
+{
+    "displayName": "Tlcsdm JSON Tree View",
+    "description": "A JSON viewer for VS Code that provides visual tree navigation, search with next/previous match, JSONata query support, and JSON5 file viewing",
+    "command.open.title": "Open JSON Tree View",
+    "command.open.category": "JSON Tree View",
+    "command.copyValue.title": "Copy Value (Unescaped)",
+    "command.copyValue.category": "JSON Tree View",
+    "config.title": "JSON Tree View",
+    "config.autoRefresh.description": "Automatically refresh the tree view when the JSON file is saved."
+}
