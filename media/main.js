@@ -148,6 +148,20 @@
         });
         menu.appendChild(copyKeyItem);
 
+        // Locate in File
+        const pathData = header.dataset.path;
+        if (pathData) {
+            const locateItem = document.createElement('div');
+            locateItem.className = 'context-menu-item';
+            locateItem.textContent = 'Locate in File';
+            locateItem.addEventListener('click', (e) => {
+                e.stopPropagation();
+                vscode.postMessage({ type: 'locateNode', path: JSON.parse(pathData) });
+                removeContextMenu();
+            });
+            menu.appendChild(locateItem);
+        }
+
         positionMenu(menu, x, y);
     }
 
@@ -225,16 +239,18 @@
         }
 
         const rootLabel = fileName ? fileName.split(/[/\\]/).pop() : 'Root';
-        const rootNode = createTreeNode('Root', data, rootLabel, true);
+        const rootNode = createTreeNode('Root', data, rootLabel, true, []);
         treeContainer.appendChild(rootNode);
     }
 
-    function createTreeNode(key, value, label, isRoot) {
+    function createTreeNode(key, value, label, isRoot, parentPath) {
+        const currentPath = isRoot ? [] : [...parentPath, key];
         const node = document.createElement('div');
         node.className = 'tree-node';
 
         const header = document.createElement('div');
         header.className = 'tree-node-header';
+        header.dataset.path = JSON.stringify(currentPath);
 
         const toggle = document.createElement('span');
         toggle.className = 'toggle';
@@ -277,7 +293,7 @@
                 childrenContainer.className = 'tree-node-children';
 
                 keys.forEach(childKey => {
-                    const childNode = createTreeNode(childKey, value[childKey], null, false);
+                    const childNode = createTreeNode(childKey, value[childKey], null, false, currentPath);
                     childrenContainer.appendChild(childNode);
                 });
 
