@@ -85,9 +85,6 @@ npm run lint
 
 # Package extension
 npm run package
-
-# Run tests
-npm run test
 ```
 
 ## License
