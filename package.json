@@ -75,7 +75,7 @@
         "command": "tlcsdm.jsonTreeView.open",
         "key": "ctrl+shift+j",
         "mac": "cmd+shift+j",
-        "when": "resourceLangId =~ /^json[c5]?$/"
+        "when": "editorLangId =~ /^json[c5]?$/"
       }
     ],
     "configuration": {
