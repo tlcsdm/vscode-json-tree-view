@@ -1,0 +1,26 @@
+name: Gitee repos mirror
+
+on:
+  schedule:
+    - cron: "0 1 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mirror the Github organization repos to Gitee.
+        uses: Yikun/gitee-mirror-action@v1.5
+        with:
+          src: github/tlcsdm
+          dst: gitee/unknowIfGuestInDream
+          dst_key: ${{ secrets.TLCSDM_GITEE_PRIVATE_KEY }}
+          dst_token: ${{ secrets.TLCSDM_GITEE_TOKEN }}
+          src_account_type: org
+          dst_account_type: user
+          static_list: "vscode-json-tree-view"
+          force_update: true
