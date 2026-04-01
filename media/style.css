@@ -142,14 +142,44 @@ body {
     content: '[ ]';
 }
 
-.node-icon.primitive {
-    background: #6a4c93;
+.node-icon.string {
+    background: var(--string-color);
     color: #fff;
     font-size: 8px;
 }
 
-.node-icon.primitive::before {
-    content: 'P';
+.node-icon.string::before {
+    content: 'S';
+}
+
+.node-icon.number {
+    background: var(--number-color);
+    color: #1e1e1e;
+    font-size: 8px;
+}
+
+.node-icon.number::before {
+    content: 'N';
+}
+
+.node-icon.boolean {
+    background: var(--boolean-color);
+    color: #fff;
+    font-size: 8px;
+}
+
+.node-icon.boolean::before {
+    content: 'B';
+}
+
+.node-icon.null {
+    background: var(--null-color);
+    color: #1e1e1e;
+    font-size: 8px;
+}
+
+.node-icon.null::before {
+    content: '∅';
 }
 
 .node-key {

@@ -259,7 +259,18 @@
             }
         } else {
             toggle.className = 'toggle leaf';
-            icon.className = 'node-icon primitive';
+
+            if (value === null) {
+                icon.className = 'node-icon null';
+            } else if (typeof value === 'string') {
+                icon.className = 'node-icon string';
+            } else if (typeof value === 'number') {
+                icon.className = 'node-icon number';
+            } else if (typeof value === 'boolean') {
+                icon.className = 'node-icon boolean';
+            } else {
+                icon.className = 'node-icon string';
+            }
 
             const keySpan = document.createElement('span');
             keySpan.className = 'node-key';
