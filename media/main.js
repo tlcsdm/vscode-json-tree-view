@@ -101,6 +101,14 @@
             e.preventDefault();
             removeContextMenu();
             showContextMenu(e.clientX, e.clientY, header);
+            return;
+        }
+
+        const resultEl = e.target.closest('.jsonata-result');
+        if (resultEl) {
+            e.preventDefault();
+            removeContextMenu();
+            showResultContextMenu(e.clientX, e.clientY, resultEl);
         }
     });
 
@@ -140,12 +148,14 @@
         });
         menu.appendChild(copyKeyItem);
 
-        // Position the menu
+        positionMenu(menu, x, y);
+    }
+
+    function positionMenu(menu, x, y) {
         menu.style.left = x + 'px';
         menu.style.top = y + 'px';
         document.body.appendChild(menu);
 
-        // Adjust if off-screen
         const rect = menu.getBoundingClientRect();
         if (rect.right > window.innerWidth) {
             menu.style.left = (window.innerWidth - rect.width - 4) + 'px';
@@ -155,6 +165,38 @@
         }
 
         activeContextMenu = menu;
+    }
+
+    function showResultContextMenu(x, y, resultEl) {
+        const menu = document.createElement('div');
+        menu.className = 'context-menu';
+
+        const selection = window.getSelection();
+        const selectedText = selection ? selection.toString() : '';
+
+        if (selectedText) {
+            const copySelItem = document.createElement('div');
+            copySelItem.className = 'context-menu-item';
+            copySelItem.textContent = 'Copy';
+            copySelItem.addEventListener('click', (e) => {
+                e.stopPropagation();
+                vscode.postMessage({ type: 'copyValue', value: selectedText });
+                removeContextMenu();
+            });
+            menu.appendChild(copySelItem);
+        }
+
+        const copyAllItem = document.createElement('div');
+        copyAllItem.className = 'context-menu-item';
+        copyAllItem.textContent = 'Copy All';
+        copyAllItem.addEventListener('click', (e) => {
+            e.stopPropagation();
+            vscode.postMessage({ type: 'copyValue', value: resultEl.textContent || '' });
+            removeContextMenu();
+        });
+        menu.appendChild(copyAllItem);
+
+        positionMenu(menu, x, y);
     }
 
     // Message handling
@@ -259,7 +301,18 @@
             }
         } else {
             toggle.className = 'toggle leaf';
-            icon.className = 'node-icon primitive';
+
+            if (value === null) {
+                icon.className = 'node-icon null';
+            } else if (typeof value === 'string') {
+                icon.className = 'node-icon string';
+            } else if (typeof value === 'number') {
+                icon.className = 'node-icon number';
+            } else if (typeof value === 'boolean') {
+                icon.className = 'node-icon boolean';
+            } else {
+                icon.className = 'node-icon string';
+            }
 
             const keySpan = document.createElement('span');
             keySpan.className = 'node-key';

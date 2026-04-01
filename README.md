@@ -29,6 +29,7 @@ Search for `tlcsdm-json-tree-view` in the VS Code Extensions panel.
 
 1. Open a JSON, JSONC, or JSON5 file in VS Code
 2. Click the tree icon in the editor title bar, or:
+   - Use keyboard shortcut `Ctrl+Shift+J` (`Cmd+Shift+J` on macOS)
    - Right-click in the editor → "Open JSON Tree View"
    - Right-click a JSON file in the Explorer → "Open JSON Tree View"
    - Run the command `JSON Tree View: Open JSON Tree View` from the Command Palette
@@ -41,9 +42,17 @@ Use the search bar at the bottom of the tree view to find content. Navigate betw
 
 Enter a JSONata expression in the input field at the bottom to query and transform the JSON data.
 
+For a comprehensive guide on JSONata expressions, see the [JSONata Expression Guide](docs/jsonata-guide.md).
+
 ### Copy Value
 
 Right-click any node in the tree to copy its key or value (unescaped).
+
+## Keyboard Shortcuts
+
+| Shortcut | Description |
+|----------|-------------|
+| `Ctrl+Shift+J` (`Cmd+Shift+J` on macOS) | Open JSON Tree View (when editing a JSON file) |
 
 ## Configuration
 
