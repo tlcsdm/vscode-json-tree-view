@@ -13,6 +13,12 @@ A VS Code extension for JSON file visualization. Provides a visual tree view for
 - 🔁 **Auto-refresh** on file save
 - 🌐 **Internationalization** - English, Chinese, Japanese
 
+## Preview
+
+See the extension in action:
+
+<img width="1050" alt="JSON Tree Viewer extension screenshot" src="readme/jsonview.png" />
+
 ## Installation
 
 ### From VS Code Marketplace
