@@ -15,5 +15,6 @@ tsconfig.json
 !README.md
 !CHANGELOG.md
 !docs/jsonata-guide.md
+readme/**
 node_modules/**
 out/**
