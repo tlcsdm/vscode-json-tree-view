@@ -215,6 +215,13 @@
 
     // Message handling
     window.addEventListener('message', (event) => {
+        const origin = typeof event.origin === 'string' ? event.origin : '';
+        const isSameOrigin = origin === window.location.origin;
+        const isVsCodeWebviewOrigin = /^vscode-webview:\/\//.test(origin);
+        if (!isSameOrigin && !isVsCodeWebviewOrigin) {
+            return;
+        }
+
         const message = event.data;
         switch (message.type) {
             case 'setData':
