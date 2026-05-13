@@ -115,7 +115,7 @@
   "license": "MIT",
   "dependencies": {
     "json5": "^2.2.3",
-    "jsonata": "^2.0.5"
+    "jsonata": "^2.1.1"
   },
   "overrides": {
     "glob": "^13.0.0",
