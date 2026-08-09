@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ### Fixed
 
-- Packaging error (`vsce` failing on `npm list --production`) caused by extraneous packages left by the `postinstall` workaround script; removed the script and kept `typescript@^7.0.2` with `legacy-peer-deps=true` in `.npmrc`
+- Build error: `typescript-eslint@8.x` does not support TypeScript 7 directly; adopted the TypeScript team's recommended side-by-side setup — `typescript` is aliased to `npm:@typescript/typescript6@^6.0.2` (providing the TS6 API for `typescript-eslint`) while `@typescript/native` is aliased to `npm:typescript@^7.0.2` (providing the `tsc` binary for type-checking at TS7 speed)
 
 ## [1.0.1] - 2026-04-01
 
