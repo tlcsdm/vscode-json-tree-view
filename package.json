@@ -95,7 +95,6 @@
     "check-types": "tsc --noEmit",
     "watch": "node esbuild.mjs --watch",
     "package": "npm run check-types && node esbuild.mjs --production",
-    "postinstall": "npm install typescript@~6.0.3 --prefix ./node_modules/typescript-eslint --legacy-peer-deps --no-save --ignore-scripts --no-audit --no-fund",
     "pretest": "tsc -p ./ && npm run lint",
     "lint": "eslint src",
     "test": "vscode-test --config ./.vscode-test.json"
@@ -110,8 +109,9 @@
     "@vscode/vsce": "^3.9.2",
     "esbuild": "^0.28.1",
     "eslint": "^10.8.0",
-    "typescript": "^7.0.2",
-    "typescript-eslint": "^8.66.0"
+    "typescript": "npm:@typescript/typescript6@^6.0.2",
+    "typescript-eslint": "^8.66.0",
+    "@typescript/native": "npm:typescript@^7.0.2"
   },
   "license": "MIT",
   "dependencies": {
