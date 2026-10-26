@@ -93,6 +93,10 @@ npm run lint
 npm run package
 ```
 
+## Acknowledgments
+
+Inspired by Akshay Kamath’s [JSON Tree Viewer for IntelliJ](https://github.com/akka298/json-viewer-plugin).
+
 ## License
 
 [MIT](LICENSE)
