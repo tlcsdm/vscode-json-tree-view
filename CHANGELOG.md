@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/), and this
 
 ## [Unreleased]
 
+## [1.0.2] - 2026-10-26
+
 ### Fixed
 
 - Build error: `typescript-eslint@8.x` does not support TypeScript 7 directly; adopted the TypeScript team's recommended side-by-side setup — `typescript` is aliased to `npm:@typescript/typescript6@^6.0.2` (providing the TS6 API for `typescript-eslint`) while `@typescript/native` is aliased to `npm:typescript@^7.0.2` (providing the `tsc` binary for type-checking at TS7 speed)
